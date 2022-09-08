@@ -1,8 +1,9 @@
 import React from "react";
 import { v4 } from 'uuid';
 import PropTypes from 'prop-types';
+import ReusableForm from "./ReusableForm";
 
-function NewMerchForm(props){
+function NewMerchForm(props) {
 
   function handleNewMerchFormSubmission(event) {
     event.preventDefault();
@@ -17,25 +18,9 @@ function NewMerchForm(props){
 
   return (
     <React.Fragment>
-      <form onSubmit={handleNewMerchFormSubmission}>
-        <input 
-          type='text'        
-          name='name'
-          placeholder='Merch Name' />
-        <input
-          type='text'
-          name='description'
-          placeholder='description' />
-        <input
-          type='text'
-          name='price'
-          placeholder='price' />
-        <input
-          type='text'
-          name='quantity'
-          placeholder='quantity' />
-        <button type='submit'>Add Merch</button>
-      </form>
+      <ReusableForm
+        formSubmissionHandler={handleNewMerchFormSubmission}
+        buttonText="Add Merch!" />
     </React.Fragment>
   );
 }
@@ -45,11 +30,3 @@ NewMerchForm.propTypes = {
 };
 
 export default NewMerchForm;
-
-
-
-// function capitalizeFirstLetter(string) {
-//   return string.charAt(0).toUpperCase() + string.slice(1);
-// }
-
-// console.log(capitalizeFirstLetter('foo')); // Foo
